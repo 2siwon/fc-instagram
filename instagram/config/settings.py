@@ -28,26 +28,26 @@ config_secret_common = json.loads(config_secret_common_str)
 
 SECRET_KEY = config_secret_common['django']['secret_key']
 
-# instagram_project/instagram/
+# fc-instamgram/instagram/
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# instagram_project/
+# fc-instamgram/
 ROOT_DIR = os.path.dirname(BASE_DIR)
-# instagram_project/.config_secret/
+# fc-instamgram/.config_secret/
 CONFIG_SECRET_DIR = os.path.join(ROOT_DIR, '.config_secret')
 
 ################# MEDIA, STATIC, TEMPLATE ######################
 
-# instagram_project/instagram/media/
+# fc-instamgram/instagram/media/
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-# instagram_project/instagram/static/
+# fc-instamgram/instagram/static/
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 # STATIC_URL 로의 요청은 STATICFILES_DIRS 경로의 목록에서 파일을 찾아 리턴
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
-# instagram_project/instagram/templates/
+# fc-instamgram/instagram/templates/
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 ################# MEDIA, STATIC, TEMPLATE ######################
@@ -147,7 +147,5 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 
