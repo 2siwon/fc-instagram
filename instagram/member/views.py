@@ -19,17 +19,18 @@ def signup(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
 
-            # 이미 username항목이 주어진 username값으로 존재하는 User가 있는지 검사
-            if User.objects.filter(username=username).exists():
-                return HttpResponse(f'Username {username} is already exist')
             # username, password가 주어졌고 중복되는 User가 없다면 User생성
             user = User.objects.create_user(
                 username=username,
                 password=password
             )
             return HttpResponse(f'{user.username}, {user.password}')
+        print(form.cleaned_data)
+        print(form.errors)
+
     # GET 요청시 SignupForm인스턴스를 form 변수에 할당 context에 같은 키/값으로 전달
-    form = SignupForm()
+    else:
+        form = SignupForm()
     context = {
         'form': form
     }
