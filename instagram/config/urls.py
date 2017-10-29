@@ -18,9 +18,11 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from post import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^post_')
+    url(r'^post/$', views.post_list, name='post_list'),
 ]
 
 urlpatterns += static(
