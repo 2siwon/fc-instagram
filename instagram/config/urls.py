@@ -36,6 +36,10 @@ urlpatterns = [
     url(r'^post/(?P<post_pk>\d+)/$',
         views.post_detail,
         name='post_detail'),
+
+    url(r'^post/(?P<post_pk>\d+)/comment/create/$',
+        views.comment_create,
+        name='comment_create'),
 ]
 
 urlpatterns += static(
