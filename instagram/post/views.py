@@ -7,9 +7,11 @@ from .models import Post, PostComment
 
 def post_list(request):
     posts = Post.objects.all()
+    comment_form = CommentForm()
 
     context = {
         'posts': posts,
+        'comment_form': comment_form
     }
 
     return render(request, 'post/post_list.html', context)
@@ -37,8 +39,10 @@ def post_create(request):
 
 def post_detail(request, post_pk):
     post = get_object_or_404(Post, pk=post_pk)
+    comment_form = CommentForm()
     context = {
         'post': post,
+        'comment_form': comment_form,
     }
     return render(request, 'post/post_detail.html', context)
 
@@ -48,14 +52,11 @@ def comment_create(request, post_pk):
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
-            comment = PostComment.objects.create(
+            PostComment.objects.create(
                 post=post,
                 content=form.cleaned_data['content']
             )
+            next = request.GET.get('next')
+            if next:
+                return redirect(next)
             return redirect('post_detail', post_pk=post_pk)
-    else:
-        form = CommentForm()
-        context = {
-            'form': form
-        }
-        return render(request, 'post/comment_create.html', context)
