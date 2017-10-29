@@ -52,7 +52,7 @@ def comment_create(request, post_pk):
                 post=post,
                 content=form.cleaned_data['content']
             )
-            return redirect('post_detail', pk=post_pk)
+            return redirect('post_detail', post_pk=post_pk)
     else:
         form = CommentForm()
         context = {
