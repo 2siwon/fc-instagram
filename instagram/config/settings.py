@@ -24,7 +24,7 @@ f = open(os.path.join(CONFIG_SECRET_DIR, 'settings_common.json'))
 config_secret_common_str = f.read()
 f.close()
 
-config_secret_common = json.load(config_secret_common_str)
+config_secret_common = json.loads(config_secret_common_str)
 
 SECRET_KEY = config_secret_common['django']['secret_key']
 
@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'post',
 
     'django_extensions',
 ]
