@@ -10,7 +10,7 @@ class PostForm(forms.Form):
         required=True,
         widget=forms.ClearableFileInput(
             attrs={
-                'class':'form-control',
+                'class': 'form-control',
             }
         )
     )

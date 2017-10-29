@@ -7,5 +7,12 @@
     {% else %}
     <h3>이미지 파일이 없습니다</h3>
     {% endif %}
+
+    <ul>
+        {% for comment in post.comments.all %}
+        <li>{{ comment.content }}</li>
+        {% endfor %}
+    </ul>
+
 </div>
 {% endblock %}
