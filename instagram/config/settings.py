@@ -63,6 +63,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 DEBUG = True
 
 ALLOWED_HOSTS = []
+AUTH_USER_MODEL = 'member.User'
 
 # Application definition
 
@@ -75,6 +76,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'post',
+    'member',
 
     'django_extensions',
 ]
