@@ -33,15 +33,7 @@ def signup(request):
         form = SignupForm(request.POST)
         # 해당 form이 자신의 필드에 유효한 데이터를 가지고 있는지 유효성 검사
         if form.is_valid():
-            # 통과한 경우 정제된 데이터 (cleaned_data)에서 username과 password 항목을 가져옴
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-
-            # username, password가 주어졌고 중복되는 User가 없다면 User생성
-            user = User.objects.create_user(
-                username=username,
-                password=password
-            )
+            user = form.signup()
             return HttpResponse(f'{user.username}, {user.password}')
         print(form.cleaned_data)
         print(form.errors)
