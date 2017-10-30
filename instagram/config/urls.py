@@ -47,6 +47,10 @@ urlpatterns = [
         member_views.signup,
         name='signup'),
 
+    url(r'^member/login/$',
+        member_views.login,
+        name='login'),
+
 
 ]
 
